@@ -12,15 +12,15 @@
   </thead>
 
   <tbody>
-  <% contacts.each do |contact| %>
+  <% players.each do |player| %>
     <tr>
       <td>
-        <%= contact&.name %>
+        <%= player&.name %>
       </td>
-      <td><%=contact&.email %></td>
-      <td><%=contact&.active %></td>
-      <td><%=contact&.age %></td>
-      <td><%=contact&.created_at&.to_formatted_s(:short) %></td>
+      <td><%=player&.email %></td>
+      <td><%=player&.active %></td>
+      <td><%=player&.age %></td>
+      <td><%=player&.created_at&.to_formatted_s(:short) %></td>
     </tr>
   <% end %>
   </tbody>
