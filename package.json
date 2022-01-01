@@ -1,0 +1,19 @@
+{
+  "name": "app",
+  "private": "true",
+  "dependencies": {
+    "stimulus": "^3.0.1",
+    "@hotwired/turbo-rails": "^7.1.0",
+    "@rails/actioncable": "^7.0.0",
+    "@popperjs/core": "^2.11.0",
+    "bootstrap": "^5.1.3",
+    "cable_ready": "^5.0.0-pre8",
+    "esbuild": "^0.14.10",
+    "sass": "^1.45.2",
+    "stimulus_reflex": "3.5.0-pre8"
+  },
+  "scripts": {
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds",
+    "build:css": "sass ./app/assets/stylesheets/application.bootstrap.scss ./app/assets/builds/application.css --no-source-map --load-path=node_modules"
+  }
+}

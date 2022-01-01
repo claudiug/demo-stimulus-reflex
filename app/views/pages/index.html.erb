@@ -1,0 +1,16 @@
+<h1>Pages#index</h1>
+<p>Find me in app/views/pages/index.html.erb</p>
+
+<a href="#"
+   data-reflex="click->Counter#increment"
+   data-step="1"
+   data-count="<%= @count.to_i %>"
+>Increment <%= @count.to_i %></a>
+
+
+<a href="#"
+   data-controller="counter"
+   data-counter-step-value="1"
+   data-step="1"
+   data-action="click->counter#increment"
+>Increment js <%= @count %></a>
