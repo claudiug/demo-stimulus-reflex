@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationReflex < StimulusReflex::Reflex
+  include Pagy::Backend
+
   # Put application-wide Reflex behavior and callbacks in this file.
   #
   # Learn more at: https://docs.stimulusreflex.com/rtfm/reflex-classes

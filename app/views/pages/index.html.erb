@@ -14,3 +14,14 @@
    data-step="1"
    data-action="click->counter#increment"
 >Increment js <%= @count %></a>
+
+
+<button
+   data-reflex="click->Counter#foo"
+   data-post-id="<%= 1 %>"
+>Create</button>
+
+
+<input id="data-entry" type="text" data-reflex="keyup->Counter#reserve"
+  placeholder="Type something..." class="form-control form-control-lg d-inline-block col-4">
+<span class="ml-3"><%= @value %></span>

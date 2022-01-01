@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Contacts</h1>
+
+<div id="contacts">
+
+  <div id="contacts">
+    <%= render partial: 'contacts', locals: {contacts: @contacts} %>
+    </div>
+  <div>
+    <%= render partial: "paginator", locals: {pagy: @pagy} %>
+  </div>
+</div>
+
+<%= link_to "New contact", new_contact_path %>

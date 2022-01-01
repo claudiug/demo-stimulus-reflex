@@ -63,6 +63,10 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
-
-
 gem "stimulus_reflex", "= 3.5.0.pre8"
+
+gem "faker", "~> 2.19"
+
+gem "pagy", "~> 5.6"
+
+gem "pg_search", "~> 2.3"
