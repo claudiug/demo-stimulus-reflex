@@ -5,10 +5,16 @@
 <div id="contacts">
 
   <div id="contacts">
+    <div data-controller="search">
+      <%= form_with(method: :get) do |form| %>
+        <%= form.label :query, "Search by name:" %>
+        <%= form.text_field :query, data: { action: "input->player-search#search" }, autocomplete: "off", value: params[:query] %>
+      <% end %>
+    </div>
     <%= render partial: 'contacts', locals: {contacts: @contacts} %>
     </div>
   <div>
-    <%#= render partial: "paginator", locals: {pagy: @pagy} %>
+    <%= render partial: "paginator", locals: {pagy: @pagy} %>
   </div>
 </div>
 

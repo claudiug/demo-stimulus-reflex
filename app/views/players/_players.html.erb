@@ -1,7 +1,11 @@
 <table class="table table-striped table-bordered">
   <thead class="bg-primary">
   <tr>
-    <th  id="player-name">
+    <th  id="player-name"
+         data-reflex="click->Player#paginate"
+         data-column="name"
+         data-direction="asc">
+<!--         data-direction=<%#=direction%>>-->
       <span>Name</span>
     </th>
     <th>Email</th>
