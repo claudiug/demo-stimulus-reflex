@@ -8,10 +8,30 @@
 <!--         data-direction=<%#=direction%>>-->
       <span>Name</span>
     </th>
-    <th>Email</th>
-    <th>Active</th>
-    <th>Age</th>
-    <th>Created</th>
+    <th  id="player-email"
+         data-reflex="click->Player#paginate"
+         data-column="email"
+         data-direction="asc">
+      <!--         data-direction=<%#=direction%>>-->
+      <span>Email</span>
+    <th  id="player-active"
+         data-reflex="click->Player#paginate"
+         data-column="active"
+         data-direction="asc">
+      <!--         data-direction=<%#=direction%>>-->
+      <span>Active</span>
+    <th  id="player-age"
+         data-reflex="click->Player#paginate"
+         data-column="age"
+         data-direction="asc">
+      <!--         data-direction=<%#=direction%>>-->
+      <span>Age</span>
+    <th  id="player-created"
+         data-reflex="click->Player#paginate"
+         data-column="created_at"
+         data-direction="asc">
+      <!--         data-direction=<%#=direction%>>-->
+      <span>Created</span>
   </tr>
   </thead>
 

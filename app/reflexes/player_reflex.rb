@@ -3,9 +3,6 @@
 class PlayerReflex < ApplicationReflex
 
   def paginate
-    puts 'a' * 100
-    puts element
-    puts 'b' * 100
     pagy, players = pagy(Contact.all, page: page)
     players = players.order("#{column} #{element.dataset.direction}")
     morph '#players', render(partial: 'players/players', locals: { players: players })
