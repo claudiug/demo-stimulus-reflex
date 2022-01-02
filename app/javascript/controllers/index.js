@@ -20,3 +20,5 @@ application.consumer = consumer
 StimulusReflex.initialize(application, { controller, isolate: true })
 StimulusReflex.debug = true
 CableReady.initialize({ consumer })
+
+

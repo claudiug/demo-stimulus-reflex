@@ -6,10 +6,11 @@
 # ActionCable.server.config.logger = Logger.new(nil)
 
 StimulusReflex.configure do |config|
+  config.logging = proc { "[#{session_id}] #{operation_counter.magenta} #{reflex_info.green} -> #{selector.cyan} via #{mode} Morph (#{operation.yellow})" }
+
   # Enable/disable exiting / warning when the sanity checks fail options:
   # `:exit` or `:warn` or `:ignore`
-
-  # config.on_failed_sanity_checks = :exit
+  config.on_failed_sanity_checks = :exit
 
   # Enable/disable exiting / warning when there's a new StimulusReflex release
   # `:exit` or `:warn` or `:ignore`

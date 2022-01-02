@@ -1,7 +1,7 @@
 @import 'bootstrap/scss/bootstrap';
 
-sort {
-  position: absolute;
+.sort {
+  position: relative;
   top: 5px;
   left: -1rem;
   width: 0;
@@ -11,9 +11,9 @@ sort {
 }
 
 .sort-desc {
-  border-top: 8px solid #fff;
+  border-top: 12px solid #a82f72;
 }
 
 .sort-asc {
-  border-bottom: 8px solid #fff;
+  border-bottom: 12px solid #a82f72;
 }

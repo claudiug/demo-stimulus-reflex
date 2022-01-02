@@ -7,6 +7,7 @@ class PlayerReflex < ApplicationReflex
     morph '#players', render(partial: 'players/players', locals: { players: players })
     morph '#paginator', render(partial: 'players/paginator', locals: { pagy: pagy })
     update_direction
+    insert_indicator
   end
 
   def search(query)
@@ -30,6 +31,17 @@ class PlayerReflex < ApplicationReflex
         selector: "##{element.id}",
         name: 'direction',
         value: next_direction(element.dataset.direction)
+      )
+  end
+
+  def insert_indicator
+    cable_ready
+      .prepend(
+        selector: "##{element.id}",
+        html: render(
+          partial: 'players/sort_indicator',
+          locals: { direction: element.dataset.direction }
+        )
       )
   end
 

@@ -52,8 +52,17 @@ export default class extends Controller {
     // handle aborted Reflex action
   }
 
-  afterReflex (element, reflex, noop, reflexId) {
+  afterReflex () {
     document.body.classList.remove('wait')
+    const focusElement = this.element.querySelector('[autofocus]')
+    if (focusElement) {
+      focusElement.focus()
+
+      // shenanigans to ensure that the cursor is placed at the end of the existing value
+      const value = focusElement.value
+      focusElement.value = ''
+      focusElement.value = value
+    }
   }
 
   finalizeReflex (element, reflex, noop, reflexId) {
