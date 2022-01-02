@@ -6,7 +6,6 @@ export default class extends ApplicationController {
   }
 
   search(event) {
-    return
     if (event.target.value === undefined || event.target.value === '' || event?.target?.value?.length <= 2) {
       return
     }
