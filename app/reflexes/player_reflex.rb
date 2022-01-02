@@ -1,17 +1,15 @@
 # frozen_string_literal: true
 
 class PlayerReflex < ApplicationReflex
-  include Pagy::Backend
 
   def paginate
-    players = if query.present?
-                Contact.search(query)
-              else
-                Contact.all
-              end
+    puts 'a' * 100
+    puts element
+    puts 'b' * 100
+    pagy, players = pagy(Contact.all, page: page)
     players = players.order("#{column} #{element.dataset.direction}")
+    morph '#players', render(partial: 'players/players', locals: { players: players })
     morph '#paginator', render(partial: 'players/paginator', locals: { pagy: pagy })
-    morph '#posts', render(partial: 'players/players', locals: { players: players })
     update_direction
   end
 
@@ -23,7 +21,7 @@ class PlayerReflex < ApplicationReflex
               end
     pagy, players = pagy(players, page: page)
     morph '#paginator', render(partial: 'players/paginator', locals: { pagy: pagy })
-    morph '#posts', render(partial: 'players/players', locals: { players: players })
+    morph '#players', render(partial: 'players/players', locals: { players: players })
   end
 
   def page
