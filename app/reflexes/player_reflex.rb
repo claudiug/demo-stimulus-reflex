@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class PlayerReflex < ApplicationReflex
-
   def paginate
     pagy, players = pagy(Contact.all, page: page)
     players = players.order("#{column} #{element.dataset.direction}")
@@ -36,6 +35,22 @@ class PlayerReflex < ApplicationReflex
 
   def next_direction(direction)
     direction == 'asc' ? 'desc' : 'asc'
+  end
+
+  def update
+    player = Contact.find(element.dataset.id)
+    if element.dataset.active == 'false'
+      player.update(active: true)
+    else
+      player.update(active: false)
+    end
+    morph dom_id(player), render(partial: 'players/player', locals: { player: player })
+    # cable_ready
+    #   .set_dataset_property(
+    #     selector: "##{element.id}",
+    #     name: 'active',
+    #     value: contact.active
+    #   )
   end
 
   # def direction

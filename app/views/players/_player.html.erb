@@ -1,0 +1,15 @@
+<tr <%= dom_id(player) %>>
+  <td>
+    <%= player&.name %>
+  </td>
+  <td><%=player&.email %></td>
+  <td>
+    <%= link_to player.active ? 'Yes' : 'No', "#",
+                class: 'btn btn-danger',
+                name: "demo",
+                data: { reflex: "click->Player#update", id: player.id, active: player.active}
+    %>
+  </td>
+  <td><%= player.age %></td>
+  <td><%= player.created_at&.to_formatted_s(:short) %></td>
+</tr>

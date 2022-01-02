@@ -1,32 +1,32 @@
 <table class="table table-striped table-bordered">
   <thead class="bg-primary">
   <tr>
-    <th  id="player-name"
+    <th id="player-name"
          data-reflex="click->Player#paginate"
          data-column="name"
          data-direction="asc">
 <!--         data-direction=<%#=direction%>>-->
       <span>Name</span>
     </th>
-    <th  id="player-email"
+    <th id="player-email"
          data-reflex="click->Player#paginate"
          data-column="email"
          data-direction="asc">
       <!--         data-direction=<%#=direction%>>-->
       <span>Email</span>
-    <th  id="player-active"
+    <th id="player-active"
          data-reflex="click->Player#paginate"
          data-column="active"
          data-direction="asc">
       <!--         data-direction=<%#=direction%>>-->
       <span>Active</span>
-    <th  id="player-age"
+    <th id="player-age"
          data-reflex="click->Player#paginate"
          data-column="age"
          data-direction="asc">
       <!--         data-direction=<%#=direction%>>-->
       <span>Age</span>
-    <th  id="player-created"
+    <th id="player-created"
          data-reflex="click->Player#paginate"
          data-column="created_at"
          data-direction="asc">
@@ -37,15 +37,7 @@
 
   <tbody>
   <% players.each do |player| %>
-    <tr>
-      <td>
-        <%= player&.name %>
-      </td>
-      <td><%=player&.email %></td>
-      <td><%=player&.active %></td>
-      <td><%=player&.age %></td>
-      <td><%=player&.created_at&.to_formatted_s(:short) %></td>
-    </tr>
+    <%=render partial: 'players/player', locals: {player: player} %>
   <% end %>
   </tbody>
 </table>
