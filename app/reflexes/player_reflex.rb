@@ -25,6 +25,11 @@ class PlayerReflex < ApplicationReflex
     element.dataset[:page].to_i.zero? ? 1 : element.dataset[:page].to_i
   end
 
+  def edit
+    player = Contact.find(element.dataset.id)
+    morph dom_id(player), render(partial: 'players/edit', locals: { player: player })
+  end
+
   def update_direction
     cable_ready
       .set_dataset_property(
