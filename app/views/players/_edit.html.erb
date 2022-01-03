@@ -1,0 +1,27 @@
+<table class="table table-striped table-bordered" id="<%= dom_id(player) %>">
+  <tbody>
+  <tr>
+    <td>
+      <%= player&.name %>
+    </td>
+    <td><%= player&.email %></td>
+    <td>
+      <%= link_to player.active ? 'Yes' : 'No', "#",
+                  class: 'btn btn-danger',
+                  name: "demo",
+                  data: { reflex: "click->Player#update", id: player.id, active: player.active }
+      %>
+    </td>
+    <td><%= player.age %></td>
+    <td><%= player.created_at&.to_formatted_s(:short) %></td>
+    <td>
+      <%= link_to 'Edit', "#", data: { reflex: "click->Player#edit", id: player.id } %>
+      <%= link_to 'Edit normal page', edit_contact_path(player) %>
+    </td>
+  </tr>
+  </tbody>
+  <%= link_to 'back', root_path %>
+</table>
+
+
+

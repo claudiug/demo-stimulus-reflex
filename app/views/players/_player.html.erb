@@ -12,4 +12,8 @@
   </td>
   <td><%= player.age %></td>
   <td><%= player.created_at&.to_formatted_s(:short) %></td>
+  <td>
+    <%= link_to 'Edit', "#", data: { reflex: "click->Player#edit", id: player.id} %>
+    <%= link_to 'Edit normal page', edit_contact_path(player)%>
+  </td>
 </tr>

@@ -25,6 +25,11 @@ class PlayerReflex < ApplicationReflex
     element.dataset[:page].to_i.zero? ? 1 : element.dataset[:page].to_i
   end
 
+  def edit
+    player = Contact.find(element.dataset.id)
+    morph dom_id(player), render(partial: 'players/edit', locals: { player: player })
+  end
+
   def update_direction
     cable_ready
       .set_dataset_property(
@@ -57,8 +62,13 @@ class PlayerReflex < ApplicationReflex
       player.update(active: false)
     end
     morph dom_id(player), render(partial: 'players/player', locals: { player: player })
+
+    cable_ready.replace(
+      selector: '#players-count',
+      html: render(inline: "<h4 id='players-count'>you have #{Contact.active.load_async.count} players active</h4>")
+    )
   end
-  
+
   def column
     element.dataset.column
   end
