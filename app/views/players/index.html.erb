@@ -1,4 +1,6 @@
-  <div data-controller="search">
+<%= stream_from :players %>
+
+<div data-controller="search">
     <%= form_with(method: :get) do |form| %>
       <%= form.label :query, "Search by name:" %>
       <%= form.text_field :query, data: { action: "input->search#search" }, autocomplete: "off", value: params[:query] %>
