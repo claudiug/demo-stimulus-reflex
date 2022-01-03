@@ -9,7 +9,7 @@ CableReady.configure do |config|
   # Enable/disable exiting / warning when there's a new CableReady release
   # `:exit` or `:warn` or `:ignore`
 
-  config.on_new_version_available = :warn
+  config.on_new_version_available = :exit
 
   # Define your own custom operations
   # https://cableready.stimulusreflex.com/customization#custom-operations

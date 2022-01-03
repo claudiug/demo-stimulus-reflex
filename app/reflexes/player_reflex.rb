@@ -62,22 +62,11 @@ class PlayerReflex < ApplicationReflex
       player.update(active: false)
     end
     morph dom_id(player), render(partial: 'players/player', locals: { player: player })
-    # cable_ready
-    #   .set_dataset_property(
-    #     selector: "##{element.id}",
-    #     name: 'active',
-    #     value: contact.active
-    #   )
+    cable_ready.replace(
+      selector: '#players-count',
+      html: render(inline: "<h4 id='players-count'>you have #{Contact.active.load_async.count} players active</h4>")
+    )
   end
-
-  # def direction
-  #   'asc' if element.dataset.direction.nil?
-  #   if element.dataset.direction == 'asc'
-  #     'desc'
-  #   else
-  #     'asc'
-  #   end
-  # end
 
   def column
     element.dataset.column
