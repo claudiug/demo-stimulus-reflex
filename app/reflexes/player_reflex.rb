@@ -30,6 +30,13 @@ class PlayerReflex < ApplicationReflex
     morph dom_id(player), render(partial: 'players/edit', locals: { player: player })
   end
 
+  def update_email
+    player = Contact.find(element.dataset.id)
+    player.email = element.dataset.email
+    player.save
+    morph dom_id(player), render(partial: 'players/edit', locals: { player: player })
+  end
+
   def update_direction
     cable_ready
       .set_dataset_property(

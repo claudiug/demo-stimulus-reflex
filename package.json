@@ -11,7 +11,8 @@
     "radiolabel": "^1.1.1",
     "sass": "^1.45.2",
     "stimulus": "^3.0.1",
-    "stimulus_reflex": "3.5.0-pre8"
+    "stimulus_reflex": "3.5.0-pre8",
+    "tom-select": "^2.0.0"
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds",

@@ -17,6 +17,8 @@ application.register("counter", CounterController)
 application.register('radiolabel', Radiolabel)
 import SearchController from "./search_controller.js"
 application.register("search", SearchController)
+import SelectController from "./select_controller.js"
+application.register("select", SelectController)
 application.consumer = consumer
 StimulusReflex.initialize(application, { controller, isolate: true })
 StimulusReflex.debug = true

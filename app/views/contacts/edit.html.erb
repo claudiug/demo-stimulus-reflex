@@ -1,6 +1,27 @@
 <table class="table table-striped table-bordered">
   <tbody>
-    <%=render partial: 'players/player', locals: {player: @contact} %>
+  <tr id="<%= dom_id(@contact) %>">
+    <td>
+      <%= @contact&.name %>
+    </td>
+    <td data-controller="select" data-search-contact-value=<%=@contact.id %>>
+      <%=select_tag 'email',
+                    options_from_collection_for_select(Contact.all, "id", "email"),
+                    id: "input-tags"%>
+    </td>
+    <td>
+      <%= link_to @contact.active ? 'Yes' : 'No', "#",
+                  class: 'btn btn-danger',
+                  name: "demo",
+                  data: { reflex: "click->@contact#update", id: @contact.id, active: @contact.active}
+      %>
+    </td>
+    <td><%= @contact.age %></td>
+    <td><%= @contact.created_at&.to_formatted_s(:short) %></td>
+    <td>
+    </td>
+  </tr>
+
   </tbody>
   <%= link_to 'back', root_path %>
 </table>
