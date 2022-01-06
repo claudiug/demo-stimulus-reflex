@@ -1,6 +1,10 @@
 <%= stream_from :players %>
+<%= stream_from :counter %>
 
 <div data-controller="search">
+  <button data-reflex="click->Player#increment">Increment Counter</button>
+
+  The counter currently reads: <span id="counter"><%= Rails.cache.fetch("counter", raw: true) {0} %></span>
     <%= form_with(method: :get) do |form| %>
       <%= form.label :query, "Search by name:" %>
       <%= form.text_field :query, data: { action: "input->search#search" }, autocomplete: "off", value: params[:query] %>

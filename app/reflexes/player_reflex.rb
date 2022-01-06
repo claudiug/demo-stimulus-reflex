@@ -72,4 +72,9 @@ class PlayerReflex < ApplicationReflex
   def column
     element.dataset.column
   end
+
+  def increment
+    morph :nothing
+    IncrementJob.perform_later
+  end
 end
